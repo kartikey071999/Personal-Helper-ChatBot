@@ -6,10 +6,17 @@ import os
 # def complete_task(task_id: int) -> str: ...
 # def list_tasks() -> str: ...
 # ... and a function to create the table ...
+import os
+import google.generativeai as genai
+from dotenv import load_dotenv
 
+# Load all the variables from your .env file
+load_dotenv() 
+
+# Now you can access the key using os.environ.get()
+api_key = os.environ.get("GEMINI_API_KEY")
 # 1. Configure your API key
-genai.configure(api_key="YOUR_API_KEY")
-
+genai.configure(api_key=api_key)
 # 2. Define your list of available tools
 my_tools = [add_task, complete_task, list_tasks]
 
